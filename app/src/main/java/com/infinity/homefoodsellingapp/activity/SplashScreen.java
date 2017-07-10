@@ -11,7 +11,7 @@ import com.infinity.homefoodsellingapp.R;
 
 public class SplashScreen extends AppCompatActivity {
 
-    ProgressBar progressBar ;
+    private ProgressBar progressBar ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
