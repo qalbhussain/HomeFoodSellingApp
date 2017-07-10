@@ -9,19 +9,21 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-       <!--Launcher Activity-->
+
+        <!-- Launcher Activity -->
         <activity
             android:name=".activity.SplashScreen"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
-        <!--other activities-->
-        <activity android:name=".activity.MainActivity"/>
+        <!-- other activities -->
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.Login" android:label="@string/activity_login" android:theme="@style/loginActivityTheme"/>
     </application>
 
 </manifest>
