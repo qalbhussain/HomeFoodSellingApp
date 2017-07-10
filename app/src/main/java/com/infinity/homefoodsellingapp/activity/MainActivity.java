@@ -1,7 +1,9 @@
-package com.infinity.homefoodsellingapp;
+package com.infinity.homefoodsellingapp.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.infinity.homefoodsellingapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
