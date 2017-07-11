@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,18 +25,23 @@ public class Login extends AppCompatActivity
     //--constant
     private final String TAG_LOGIN = "LOGIN";
 
-    //--Firebase Auth
+    //--Firebase Authentication
     FirebaseAuth mAuth;
 
     //--local variables
-    EditText mEmail, mPassword ;
-    Button mBtnLogin ;
+    private EditText mEmail, mPassword ;
+    private Button mBtnLogin ;
+
+    //--toolbar
+    private Toolbar toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //initialize and add toolbar in activity
+        initToolbar();
 
         //--assigning id's references to local variables
         mEmail = (EditText) findViewById(R.id.email);
@@ -46,6 +53,31 @@ public class Login extends AppCompatActivity
 
         //setOnClickListener
         mBtnLogin.setOnClickListener(this);
+    }
+
+
+    //--adding toolbar
+    private void initToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.appbar);
+        setSupportActionBar(toolbar);
+        //--if toolbar is set a default than add home back button
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+    }
+
+
+    //--handle toolbar menu events
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //--if user press the back button, close the current activity
+        //--and go back to previous activity that is in stack
+        if (item.getItemId() == android.R.id.home){
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -102,8 +134,4 @@ public class Login extends AppCompatActivity
         return true;
     }
 
-
-    //--Goto signup activity to register user
-    public void GoToSignup(View view) {
-    }
 }
