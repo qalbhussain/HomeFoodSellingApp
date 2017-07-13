@@ -29,11 +29,12 @@ public class Signup extends AppCompatActivity {
 
     //--toolbar
     private Toolbar toolbar;
+
     //--progress bar
     private ProgressBar progressBar;
 
     //--local variables
-    EditText mEmail, mPassword, mUsername;
+    private EditText mEmail, mPassword, mUsername;
 
     //--Firebase Authentication
     FirebaseAuth mAuth;

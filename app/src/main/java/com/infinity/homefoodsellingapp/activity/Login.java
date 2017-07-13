@@ -1,7 +1,9 @@
 package com.infinity.homefoodsellingapp.activity;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,11 +32,17 @@ public class Login extends AppCompatActivity
     FirebaseAuth mAuth;
 
     //--local variables
-    private EditText mEmail, mPassword ;
-    private Button mBtnLogin ;
+    private EditText mEmail, mPassword;
+    private Button mBtnLogin;
+
+    //login button facebook/gmail
+    private Button mBtnGmail, mBtnFacebook ;
 
     //--toolbar
     private Toolbar toolbar;
+
+    //--progress bar
+    private ProgressBar progressBar;
 
 
     @Override
@@ -44,9 +53,16 @@ public class Login extends AppCompatActivity
         initToolbar();
 
         //--assigning id's references to local variables
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this, R.color.colorPrimaryDark), PorterDuff.Mode.MULTIPLY);
+        //--set progress bar visibility GONE
+        progressBar.setVisibility(View.GONE);
+
         mEmail = (EditText) findViewById(R.id.email);
         mPassword = (EditText) findViewById(R.id.password);
         mBtnLogin = (Button) findViewById(R.id.login);
+        mBtnGmail = (Button) findViewById(R.id.signin_gmail);
+        mBtnFacebook = (Button) findViewById(R.id.signin_facebook);
 
         //Initialize firebase auth
         mAuth = FirebaseAuth.getInstance();
@@ -61,7 +77,7 @@ public class Login extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.appbar);
         setSupportActionBar(toolbar);
         //--if toolbar is set a default than add home back button
-        if (getSupportActionBar() != null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
@@ -73,7 +89,7 @@ public class Login extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         //--if user press the back button, close the current activity
         //--and go back to previous activity that is in stack
-        if (item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
 
@@ -84,11 +100,12 @@ public class Login extends AppCompatActivity
     //--onCLick listener
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.login : signInUserWithCredentials();
+        switch (v.getId()) {
+            case R.id.login:
+                signInUserWithCredentials();
                 break;
             default:
-                Log.d(TAG_LOGIN,"Incorrect button pressed");
+                Log.d(TAG_LOGIN, "Incorrect button pressed");
         }
 
     }
@@ -100,15 +117,23 @@ public class Login extends AppCompatActivity
         String sPass = mPassword.getText().toString();
 
         if (validateCredentials(sEmail, sPass)) {
+            //--set progress bar to visible
+            progressBar.setVisibility(View.VISIBLE);
             mAuth.signInWithEmailAndPassword(sEmail, sPass)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                progressBar.setVisibility(View.GONE); //hide the progress bar
                                 //user login successfull
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                Intent i = new Intent(getApplicationContext(), Home.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                                        Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                                        Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(i);
                                 finish();
                             } else {
+                                progressBar.setVisibility(View.GONE); //hide the progress bar
                                 //user login failed
                                 Toast.makeText(Login.this, "login failed", Toast.LENGTH_SHORT).show();
                             }
@@ -127,7 +152,7 @@ public class Login extends AppCompatActivity
         }
 
         //--return false if password field is empty or less than 5 digits
-        if (TextUtils.isEmpty(sPass) || sPass.length()<5) {
+        if (TextUtils.isEmpty(sPass) || sPass.length() < 5) {
             mPassword.setError("minimum password length 5 digits");
             return false;
         }

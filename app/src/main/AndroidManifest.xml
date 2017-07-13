@@ -11,8 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
 
         <!-- Launcher Activity -->
         <activity
@@ -38,6 +37,7 @@
             android:name=".activity.Signup"
             android:label="@string/activity_signup"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.Home"></activity>
     </application>
 
 </manifest>
