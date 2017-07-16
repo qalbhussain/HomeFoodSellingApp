@@ -29,11 +29,12 @@ public class Signup extends AppCompatActivity {
 
     //--toolbar
     private Toolbar toolbar;
+
     //--progress bar
     private ProgressBar progressBar;
 
     //--local variables
-    EditText mEmail, mPassword, mUsername;
+    private EditText mEmail, mPassword, mUsername;
 
     //--Firebase Authentication
     FirebaseAuth mAuth;
@@ -112,7 +113,6 @@ public class Signup extends AppCompatActivity {
                                 if (currentUser != null) {
                                     mDatabaseReference.child("Users").child(currentUser.getUid()).child("username").setValue(mUsername.getText().toString());
                                     mDatabaseReference.child("Users").child(currentUser.getUid()).child("email").setValue(mEmail.getText().toString());
-                                    mDatabaseReference.child("Users").child(currentUser.getUid()).child("photo_url").setValue("null");
                                     mDatabaseReference.child("Users").child(currentUser.getUid()).child("isLoggedIn").setValue(false);
                                 }
 
@@ -120,7 +120,6 @@ public class Signup extends AppCompatActivity {
                                 finish();
                             } else {
                                 progressBar.setVisibility(View.GONE); //hide progress bar
-                                Log.d(TAG, task.getException().getMessage());
                                 Toast.makeText(Signup.this, "Please check you internet connection", Toast.LENGTH_SHORT).show();
                             }
                         }

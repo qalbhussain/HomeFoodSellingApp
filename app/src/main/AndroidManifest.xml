@@ -11,8 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
 
         <!-- Launcher Activity -->
         <activity
@@ -38,6 +37,14 @@
             android:name=".activity.Signup"
             android:label="@string/activity_signup"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Home"
+            android:screenOrientation="portrait" />
+
+        <!--facebook sdk meta data-->
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
     </application>
 
 </manifest>

@@ -9,8 +9,18 @@
         android:id="@+id/appbar"
         layout="@layout/app_bar" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:indeterminate="true" />
+
     <LinearLayout
         android:layout_below="@+id/appbar"
+        android:layout_above="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -116,7 +126,6 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:background="@color/colorFacebookBlue"
             android:text="@string/login_btn_fb_txt"
             android:textAllCaps="false"
@@ -124,6 +133,7 @@
 
         <Button
             android:id="@+id/signin_gmail"
+            android:layout_marginTop="10dp"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,6 +144,5 @@
     </LinearLayout>
 
     </LinearLayout>
-
 
 </RelativeLayout>

@@ -7,11 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.infinity.homefoodsellingapp.R;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private ProgressBar progressBar ;
+    //--progress bar
+    private ProgressBar progressBar;
+
+    //--Firebase auth
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,18 +25,26 @@ public class SplashScreen extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_screen);
-        //asign id to variable
+        //--asign id to variable
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this, R.color.colorPrimaryDark), PorterDuff.Mode.MULTIPLY);
 
-        //Thread will run for 3 sec and than launches Main Activity
+        //--initialize instance of firebase auth
+        mAuth = FirebaseAuth.getInstance();
+
+        //--Thread will run for 3 sec and than launches Main Activity
         final Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     Thread.sleep(3000);
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    finish();
+                    if (mAuth.getCurrentUser() != null) {
+                        startActivity(new Intent(getApplicationContext(), Home.class));
+                        finish();
+                    } else {
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
