@@ -1,9 +1,30 @@
 <resources>
     <!--Application name-->
-    <string name="app_name">Homemade Food</string>
+    <string name="app_name">Khana</string>
 
     <!--Activity name-->
     <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="activity_login">Login</string>
+    <string name="activity_signup">SignUp</string>
+
+    <!--Image content description-->
     <string name="content_description">food app</string>
+
+    <!--Other strings-->
+    <string name="khana">KHANA</string>
+    <string name="app_tagline">A Homemade Food\n Selling App</string>
+    <string name="login_btn_fb_txt">Facebook</string>
+    <string name="login_btn_gmail_txt">Gmail</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="signup_with_email">Register yourself! HURRY UP</string>
+    <string name="or">or</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+
+    <string name="already_have_an_account_sign_in">
+        Already have an account\n SIGN IN!
+    </string>
+    <string name="username">Username</string>
 
 </resources>

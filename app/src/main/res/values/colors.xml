@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#fba919</color>
-    <color name="colorPrimaryDark">#db9822</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorPrimaryDark">#cf8f1d</color>
+    <color name="colorAccent">#607D8B</color>
     <color name="colorGrey">#f3f3f3</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="colorDivider">#BDBDBD</color>
+    <color name="colorIcon">#212121</color>
 
-    <color name="colorPrimaryTransparent">#c6fba919</color>
-    <color name="btnFbBg">#1e71b8</color>
-    <color name="btnGmailBg">#cc2229</color>
+    <color name="colorPrimaryTransparent">#bbfba919</color>
+    <color name="colorFacebookBlue">#1e71b8</color>
+    <color name="colorGmailRed">#cc2229</color>
     <color name="colorWhite">#fff</color>
     <color name="colorBlack">#000</color>
 
