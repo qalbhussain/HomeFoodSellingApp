@@ -30,14 +30,8 @@
                 android:title="@string/setting"
                 android:icon="@drawable/ic_settings"/>
             <item
-                android:id="@+id/contact_us"
-                android:title="@string/contact_us"
-                android:icon="@drawable/ic_phone_iphone"/>
-            <item
-                android:id="@+id/nav_about_us"
-                android:title="@string/about_us"
-                android:icon="@drawable/ic_person"
-                />
+                android:id="@+id/sign_out"
+                android:title="@string/sign_out"/>
         </menu>
     </item>
 

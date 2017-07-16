@@ -113,7 +113,6 @@ public class Signup extends AppCompatActivity {
                                 if (currentUser != null) {
                                     mDatabaseReference.child("Users").child(currentUser.getUid()).child("username").setValue(mUsername.getText().toString());
                                     mDatabaseReference.child("Users").child(currentUser.getUid()).child("email").setValue(mEmail.getText().toString());
-                                    mDatabaseReference.child("Users").child(currentUser.getUid()).child("photo_url").setValue("null");
                                     mDatabaseReference.child("Users").child(currentUser.getUid()).child("isLoggedIn").setValue(false);
                                 }
 
@@ -121,7 +120,6 @@ public class Signup extends AppCompatActivity {
                                 finish();
                             } else {
                                 progressBar.setVisibility(View.GONE); //hide progress bar
-                                Log.d(TAG, task.getException().getMessage());
                                 Toast.makeText(Signup.this, "Please check you internet connection", Toast.LENGTH_SHORT).show();
                             }
                         }
