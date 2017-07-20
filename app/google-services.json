@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "828183596223",
+    "firebase_url": "https://khana-18b80.firebaseio.com",
+    "project_id": "khana-18b80",
+    "storage_bucket": "khana-18b80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828183596223:android:c2a91732caf7729e",
+        "android_client_info": {
+          "package_name": "com.infinity.homefoodsellingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828183596223-p0oh31lk4727atu75s34ruq32tqokslu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.infinity.homefoodsellingapp",
+            "certificate_hash": "29ae27d830fa015d2fe5b91bbc12920c09c36075"
+          }
+        },
+        {
+          "client_id": "828183596223-35d9j5er3konkc4mmu5l9e401ik1lrg3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVwY5PPzbJazuROlSm1Zo34H3qidKUeIc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828183596223-35d9j5er3konkc4mmu5l9e401ik1lrg3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

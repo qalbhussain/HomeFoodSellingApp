@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/search_cook_nearby"
+            android:id="@+id/nav_search_cook_nearby"
             android:icon="@drawable/ic_place"
             android:title="@string/nearby_search" />
         <item
-            android:id="@+id/be_a_chef"
+            android:id="@+id/nav_be_a_chef"
             android:icon="@drawable/ic_restaurant_menu"
             android:title="@string/be_a_chef" />
         <item
-            android:id="@+id/inbox"
+            android:id="@+id/nav_inbox"
             android:icon="@drawable/ic_mail_outline"
             android:title="@string/inbox" />
         <item
-            android:id="@+id/notification"
+            android:id="@+id/nav_notification"
             android:icon="@drawable/ic_notifications"
             android:title="@string/notifications" />
         <item
-            android:id="@+id/fav"
+            android:id="@+id/nav_fav"
             android:icon="@drawable/ic_favorite"
             android:title="@string/fav" />
     </group>
@@ -26,7 +26,7 @@
     <item android:title="@string/other_heading">
         <menu>
             <item
-                android:id="@+id/setting"
+                android:id="@+id/nav_setting"
                 android:title="@string/setting"
                 android:icon="@drawable/ic_settings"/>
             <item

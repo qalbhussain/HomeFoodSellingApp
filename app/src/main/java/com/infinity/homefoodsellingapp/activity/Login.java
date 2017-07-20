@@ -21,7 +21,6 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.Auth;
@@ -42,7 +41,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.infinity.homefoodsellingapp.R;
 
-import java.io.IOException;
 import java.util.Arrays;
 
 import static android.view.View.GONE;
@@ -135,7 +133,7 @@ public class Login extends AppCompatActivity
 
             @Override
             public void onCancel() {
-                    progressBar.setVisibility(GONE);
+                progressBar.setVisibility(GONE);
                 Toast.makeText(Login.this, "Facebook login Cancelled", Toast.LENGTH_SHORT).show();
             }
 
@@ -363,7 +361,6 @@ public class Login extends AppCompatActivity
 
     }
 
-
     //---------------ACTIVITY METHODS----------------//
 
 
@@ -406,4 +403,5 @@ public class Login extends AppCompatActivity
             progressBar.setVisibility(GONE);
         }
     }
+
 }

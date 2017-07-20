@@ -39,6 +39,14 @@
     <string name="privacy">Privacy Policy</string>
     <string name="sign_out">Sign out</string>
 
+    <string-array name="nav_item_activity_titles">
+        <item>Search Cook Nearby</item>
+        <item>Be a Chef</item>
+        <item>Inbox</item>
+        <item>Notifications</item>
+        <item>Favourite Chef</item>
+    </string-array>
+
     <!--drawer-->
     <string name="openDrawer">open_drawer</string>
     <string name="closeDrawer">close_drawer</string>
