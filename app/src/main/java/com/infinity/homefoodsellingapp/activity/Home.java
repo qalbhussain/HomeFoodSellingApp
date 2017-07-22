@@ -244,6 +244,8 @@ public class Home extends AppCompatActivity {
 
     //----------------------ACTIVITY METHOD----------------------//
 
+    //--on Back button pressed on cell phone
+    //-- close the drawer if open, return to home fragment if currentFrag != homeFrag
     @Override
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {

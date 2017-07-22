@@ -2,9 +2,36 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.infinity.homefoodsellingapp">
 
-    <!-- Permissions -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <!--permissions-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--permission to access network state-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--permission to read google services from server-->
+    <uses-permission android:name="com.google.android.providers.gsf.permissions.READ_GSERVICES"/>
 
+    <!--Dangerous permission-->
+    <!--must ask user to give access to these permissions in order to run application functionality-
+    -must declare these permissions in android java code -->
+    <!--permission to save data on device storage-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+    <!--user created permission-->
+    <permission android:name="com.infinity.homefoodsellingapp.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
+
+    <!--USE user created permissions-->
+    <!--This permission will let my application to receive permission from google api-->
+    <uses-permission android:name="com.infinity.homefoodsellingapp.permission.MAPS_RECEIVE"/>
+
+    <!--to use google map in an android device, must use this feature -glEsVersion- -->
+    <uses-feature android:glEsVersion="0x00020000"
+        android:required="true"/>
+
+
+    <!--application start-->
     <application
         android:allowBackup="false"
         android:icon="@drawable/logo"
@@ -44,6 +71,12 @@
         <!--facebook sdk meta data-->
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
+        <!--google API key-->
+        <meta-data android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAeYMe6dClgJdZo8DB0wzJKHecN89e5Mlw" />
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
     </application>
 
